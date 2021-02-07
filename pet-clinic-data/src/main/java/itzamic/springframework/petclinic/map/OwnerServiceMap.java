@@ -2,9 +2,11 @@ package itzamic.springframework.petclinic.map;
 
 import itzamic.springframework.petclinic.model.Owner;
 import itzamic.springframework.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
