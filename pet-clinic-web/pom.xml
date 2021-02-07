@@ -17,6 +17,7 @@
         <dependency>
             <groupId>itzamic.springframework</groupId>
             <artifactId>pet-clinic-data</artifactId>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

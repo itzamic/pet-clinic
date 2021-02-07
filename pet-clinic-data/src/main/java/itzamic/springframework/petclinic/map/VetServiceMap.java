@@ -2,10 +2,11 @@ package itzamic.springframework.petclinic.map;
 
 import itzamic.springframework.petclinic.model.Vet;
 import itzamic.springframework.petclinic.services.CrudService;
+import itzamic.springframework.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
