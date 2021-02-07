@@ -1,4 +1,4 @@
-package itzamic.springframework.petclinic;
+package izamic.springframework.petclinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
