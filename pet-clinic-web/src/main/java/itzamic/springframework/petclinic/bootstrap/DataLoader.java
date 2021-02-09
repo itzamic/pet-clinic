@@ -1,6 +1,7 @@
 package itzamic.springframework.petclinic.bootstrap;
 
 import itzamic.springframework.petclinic.model.Owner;
+import itzamic.springframework.petclinic.model.Pet;
 import itzamic.springframework.petclinic.model.PetType;
 import itzamic.springframework.petclinic.model.Vet;
 import itzamic.springframework.petclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import itzamic.springframework.petclinic.services.PetTypeService;
 import itzamic.springframework.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -35,11 +38,31 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstname("Michael");
         owner1.setLastname("Weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("1234567890");
+
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setName("Rosco");
+        mikesPet.setBirthDate(LocalDate.now());
+        owner1.getPets().add(mikesPet);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstname("Fiona");
         owner2.setLastname("Glenanne");
+        owner2.setAddress("123 Brickerel");
+        owner2.setCity("Miammi");
+        owner2.setTelephone("1234567890");
+
+        Pet FionaPet = new Pet();
+        FionaPet.setPetType(savedCatPetType);
+        FionaPet.setOwner(owner2);
+        FionaPet.setName("Mirko");
+        FionaPet.setBirthDate(LocalDate.now());
+        owner1.getPets().add(FionaPet);
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners....");
