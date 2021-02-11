@@ -1,15 +1,15 @@
 package itzamic.springframework.petclinic.services.map;
 
-import itzamic.springframework.petclinic.model.Specialty;
-import itzamic.springframework.petclinic.services.SpecialtyService;
+import itzamic.springframework.petclinic.model.Pet;
+import itzamic.springframework.petclinic.services.PetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> implements SpecialtyService {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
-    public Set<Specialty> findAll() {
+    public Set<Pet> findAll() {
         return super.findAll();
     }
 
@@ -19,17 +19,17 @@ public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> imp
     }
 
     @Override
-    public void delete(Specialty object) {
+    public void delete(Pet object) {
         super.delete(object);
     }
 
     @Override
-    public Specialty save(Specialty object) {
+    public Pet save(Pet object) {
         return super.save(object);
     }
 
     @Override
-    public Specialty findById(Long id) {
+    public Pet findById(Long id) {
         return super.findById(id);
     }
 }
