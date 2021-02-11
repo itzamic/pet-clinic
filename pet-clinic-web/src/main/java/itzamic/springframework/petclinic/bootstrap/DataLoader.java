@@ -4,6 +4,7 @@ import itzamic.springframework.petclinic.model.*;
 import itzamic.springframework.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -24,6 +25,7 @@ public class DataLoader implements CommandLineRunner {
         this.visitService = visitService;
     }
 
+    @Transactional
     @Override
     public void run(String... args) throws Exception {
         if (petTypeService.findAll().size() == 0) {
