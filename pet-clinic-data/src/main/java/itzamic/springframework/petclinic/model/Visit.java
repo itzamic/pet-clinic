@@ -1,11 +1,15 @@
 package itzamic.springframework.petclinic.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {

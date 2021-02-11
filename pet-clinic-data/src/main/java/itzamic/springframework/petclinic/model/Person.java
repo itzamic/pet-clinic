@@ -1,11 +1,13 @@
 package itzamic.springframework.petclinic.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @MappedSuperclass
 public class Person extends BaseEntity {
     @Column(name = "first_name")
