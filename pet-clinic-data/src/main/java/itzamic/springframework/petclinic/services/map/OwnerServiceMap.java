@@ -1,4 +1,4 @@
-package itzamic.springframework.petclinic.map;
+package itzamic.springframework.petclinic.services.map;
 
 import itzamic.springframework.petclinic.model.Owner;
 import itzamic.springframework.petclinic.model.Pet;
