@@ -1,3 +1,6 @@
+# Template:
+[![<ORG_NAME>](https://circleci.com/github/itzamic/pet-clinic.svg?style=svg)](https://circleci.com/github/itzamic/pet-clinic)
+
 # pet-clinic
 
 The Pet Clinic example
