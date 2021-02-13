@@ -1,5 +1,5 @@
 # Template:
-[![<ORG_NAME>](https://circleci.com/github/itzamic/pet-clinic.svg?style=svg)](https://circleci.com/github/itzamic/pet-clinic)
+[![<ORG_NAME>](https://circleci.com/github/itzamic/pet-clinic.svg?style=svg)](https://circleci.com/gh/itzamic/pet-clinic)
 
 # pet-clinic
 
