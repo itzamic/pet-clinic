@@ -8,6 +8,7 @@ import itzamic.springframework.petclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -53,5 +54,10 @@ public class OwnerJPAService implements OwnerService {
     @Override
     public Owner findByLastName(String lastname) {
         return ownerRepository.findByLastname(lastname);
+    }
+
+    @Override
+    public List<Owner> findAllByLastnameLike(String lastname) {
+        return ownerRepository.findAllByLastnameLike(lastname);
     }
 }
