@@ -82,4 +82,16 @@ class OwnerControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
     }
+
+    @Test
+    void processFindFormReturnAll() throws Exception {
+        when(ownerService.findAllByLastnameLike(anyString()))
+                .thenReturn(List.of(Owner.builder().id(1L).build(), Owner.builder().id(2L).build(), Owner.builder().id(3L).build()));
+
+        mockMvc.perform(get("/owners"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerList"))
+                .andExpect(model().attribute("selections", hasSize(3)));
+    }
+
 }
