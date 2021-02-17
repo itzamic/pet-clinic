@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.*;
@@ -44,19 +45,11 @@ class OwnerControllerTest {
     }
 
     @Test
-    void listOwners() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
-        mockMvc.perform(get("/owners"))
-                .andExpect(status().is(200))
-                .andExpect(view().name("owners/index"))
-                .andExpect(model().attribute("owners", hasSize(2)));
-    }
-
-    @Test
     void findOwners() throws Exception {
         mockMvc.perform(get("/owners/find"))
                 .andExpect(status().isOk())
-            .andExpect(view().name("notImplemented"));
+                .andExpect(view().name("owners/findOwners"))
+                .andExpect(model().attributeExists("owner"));
 
         verifyNoInteractions(ownerService);
     }
@@ -68,5 +61,25 @@ class OwnerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/ownerDetails"))
                 .andExpect(model().attribute("owner", hasProperty("id", is(1L))));
+    }
+
+    @Test
+    void processFindFormReturnMany() throws Exception {
+        when(ownerService.findAllByLastnameLike(anyString()))
+                .thenReturn(List.of(Owner.builder().id(1L).build(), Owner.builder().id(2L).build()));
+
+        mockMvc.perform(get("/owners"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerList"))
+                .andExpect(model().attribute("selections", hasSize(2)));
+    }
+
+    @Test
+    void processFindFormReturnOne() throws Exception {
+        when(ownerService.findAllByLastnameLike(anyString())).thenReturn(List.of(Owner.builder().id(1L).build()));
+
+        mockMvc.perform(get("/owners"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/owners/1"));
     }
 }
