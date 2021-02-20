@@ -16,11 +16,11 @@ public class Vet extends Person {
     @JoinTable(name = "vet_specialties",
             joinColumns = @JoinColumn(name = "vet_id"),
             inverseJoinColumns = @JoinColumn(name = "speciality_id"))
-    private Set<Specialty> specialties = new HashSet<>();
+    private Set<Specialty> specialities = new HashSet<>();
 
     @Builder
-    public Vet(Long id, String firstname, String lastname, Set<Specialty> specialties) {
+    public Vet(Long id, String firstname, String lastname, Set<Specialty> specialities) {
         super(id, firstname, lastname);
-        this.specialties = specialties;
+        this.specialities = specialities;
     }
 }
